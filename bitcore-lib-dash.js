@@ -25931,7 +25931,7 @@ module.exports={
   "_args": [
     [
       "elliptic@6.4.0",
-      "/Users/awerner/GitHub/dashevo/bitcore-lib-dash"
+      "/Users/awerner/GitHub/dashevo/bitcore-lib-trvc"
     ]
   ],
   "_development": true,
@@ -25956,7 +25956,7 @@ module.exports={
   ],
   "_resolved": "https://registry.npmjs.org/elliptic/-/elliptic-6.4.0.tgz",
   "_spec": "6.4.0",
-  "_where": "/Users/awerner/GitHub/dashevo/bitcore-lib-dash",
+  "_where": "/Users/awerner/GitHub/dashevo/bitcore-lib-trvc",
   "author": {
     "name": "Fedor Indutny",
     "email": "fedor@indutny.com"
@@ -28300,7 +28300,7 @@ module.exports={
   "_args": [
     [
       "elliptic@6.4.0",
-      "/Users/awerner/GitHub/dashevo/bitcore-lib-dash"
+      "/Users/awerner/GitHub/dashevo/bitcore-lib-trvc"
     ]
   ],
   "_development": true,
@@ -28325,7 +28325,7 @@ module.exports={
   ],
   "_resolved": "https://registry.npmjs.org/elliptic/-/elliptic-6.4.0.tgz",
   "_spec": "6.4.0",
-  "_where": "/Users/awerner/GitHub/dashevo/bitcore-lib-dash",
+  "_where": "/Users/awerner/GitHub/dashevo/bitcore-lib-trvc",
   "author": {
     "name": "Fedor Indutny",
     "email": "fedor@indutny.com"
@@ -32466,7 +32466,7 @@ module.exports={
   "_args": [
     [
       "elliptic@3.0.3",
-      "/Users/awerner/GitHub/dashevo/bitcore-lib-dash"
+      "/Users/awerner/GitHub/dashevo/bitcore-lib-trvc"
     ]
   ],
   "_from": "elliptic@3.0.3",
@@ -32490,7 +32490,7 @@ module.exports={
   ],
   "_resolved": "https://registry.npmjs.org/elliptic/-/elliptic-3.0.3.tgz",
   "_spec": "3.0.3",
-  "_where": "/Users/awerner/GitHub/dashevo/bitcore-lib-dash",
+  "_where": "/Users/awerner/GitHub/dashevo/bitcore-lib-trvc",
   "author": {
     "name": "Fedor Indutny",
     "email": "fedor@indutny.com"
@@ -66458,7 +66458,7 @@ function block(c, tweak, b, off) {
 }
 },{"./helper":268,"./op":272}],276:[function(require,module,exports){
 module.exports={
-  "name": "bitcore-lib-dash",
+  "name": "bitcore-lib-trvc",
   "version": "0.15.2",
   "description": "A pure and powerful JavaScript Dash library.",
   "author": "BitPay <dev@bitpay.com>",
@@ -66545,12 +66545,12 @@ module.exports={
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/dashevo/bitcore-lib-dash.git"
+    "url": "https://github.com/dashevo/bitcore-lib-trvc.git"
   },
   "bugs": {
-    "url": "https://github.com/dashevo/bitcore-lib-dash/issues"
+    "url": "https://github.com/dashevo/bitcore-lib-trvc/issues"
   },
-  "homepage": "https://github.com/dashevo/bitcore-lib-dash",
+  "homepage": "https://github.com/dashevo/bitcore-lib-trvc",
   "browser": {
     "request": "browser-request"
   },
@@ -66575,7 +66575,7 @@ module.exports={
   "license": "MIT"
 }
 
-},{}],"bitcore-lib-dash":[function(require,module,exports){
+},{}],"bitcore-lib-trvc":[function(require,module,exports){
 (function (global,Buffer){
 'use strict';
 

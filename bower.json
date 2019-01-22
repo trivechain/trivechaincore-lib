@@ -1,8 +1,8 @@
 {
-  "name": "bitcore-lib-dash",
-  "main": "./bitcore-lib-dash.min.js",
+  "name": "bitcore-lib-trvc",
+  "main": "./bitcore-lib-trvc.min.js",
   "version": "0.15.2",
-  "homepage": "https://github.com/dashevo/bitcore-lib-dash",
+  "homepage": "https://github.com/dashevo/bitcore-lib-trvc",
   "authors": [
     "Dash", "BitPay, Inc."
   ],
