@@ -107,7 +107,7 @@
     "x11-hash-js": "=1.0.0"
   },
   "devDependencies": {
-    "bitcore-build-dash": "trivechain/bitcore-build-trvc",
+    "bitcore-build-dash": "*",
     "browserify": "latest",
     "brfs": "^1.2.0",
     "chai": "^1.10.0",
