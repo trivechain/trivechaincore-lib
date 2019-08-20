@@ -1,3 +1,6 @@
+/* eslint-disable */
+// TODO: Remove previous line and work through linting issues at next edit
+
 'use strict';
 
 var should = require('chai').should();
@@ -28,13 +31,13 @@ describe('PublicKey', function() {
     it('errors if an invalid point is provided', function() {
       (function() {
         return new PublicKey(invalidPoint);
-      }).should.throw('Invalid x,y value for curve, cannot equal 0.');
+      }).should.throw('Point does not lie on the curve');
     });
 
     it('errors if a point not on the secp256k1 curve is provided', function() {
       (function() {
         return new PublicKey(new Point(1000, 1000));
-      }).should.throw('Invalid y value for curve.');
+      }).should.throw('Point does not lie on the curve');
     });
 
     it('errors if the argument is of an unrecognized type', function() {
@@ -49,7 +52,7 @@ describe('PublicKey', function() {
     it('from a private key', function() {
       var privhex = '906977a061af29276e40bf377042ffbde414e496ae2260bbf1fa9d085637bfff';
       var pubhex = '02a1633cafcc01ebfb6d78e39f687a1f0995c62fc95f51ead10a02ee0be551b5dc';
-      var privkey = new PrivateKey(new BN(new Buffer(privhex, 'hex')));
+      var privkey = new PrivateKey(new BN(Buffer.from(privhex, 'hex')));
       var pk = new PublicKey(privkey);
       pk.toString().should.equal(pubhex);
     });
@@ -109,7 +112,7 @@ describe('PublicKey', function() {
     });
 
     it('from a hex encoded DER buffer', function() {
-      var pk = new PublicKey(new Buffer('041ff0fe0f7b15ffaa85ff9f4744d539139c252a49710fb053bb9f2b933173ff9a7baad41d04514751e6851f5304fd243751703bed21b914f6be218c0fa354a341', 'hex'));
+      var pk = new PublicKey(Buffer.from('041ff0fe0f7b15ffaa85ff9f4744d539139c252a49710fb053bb9f2b933173ff9a7baad41d04514751e6851f5304fd243751703bed21b914f6be218c0fa354a341', 'hex'));
       should.exist(pk.point);
       pk.point.getX().toString(16).should.equal('1ff0fe0f7b15ffaa85ff9f4744d539139c252a49710fb053bb9f2b933173ff9a');
     });
@@ -132,7 +135,7 @@ describe('PublicKey', function() {
     it('should recieve an invalid point error', function() {
       var error = PublicKey.getValidationError(invalidPoint);
       should.exist(error);
-      error.message.should.equal('Invalid x,y value for curve, cannot equal 0.');
+      error.message.should.equal('Point does not lie on the curve');
     });
 
     it('should recieve a boolean as false', function() {
@@ -220,20 +223,20 @@ describe('PublicKey', function() {
   describe('#fromBuffer', function() {
 
     it('should parse this uncompressed public key', function() {
-      var pk = PublicKey.fromBuffer(new Buffer('041ff0fe0f7b15ffaa85ff9f4744d539139c252a49710fb053bb9f2b933173ff9a7baad41d04514751e6851f5304fd243751703bed21b914f6be218c0fa354a341', 'hex'));
+      var pk = PublicKey.fromBuffer(Buffer.from('041ff0fe0f7b15ffaa85ff9f4744d539139c252a49710fb053bb9f2b933173ff9a7baad41d04514751e6851f5304fd243751703bed21b914f6be218c0fa354a341', 'hex'));
       pk.point.getX().toString(16).should.equal('1ff0fe0f7b15ffaa85ff9f4744d539139c252a49710fb053bb9f2b933173ff9a');
       pk.point.getY().toString(16).should.equal('7baad41d04514751e6851f5304fd243751703bed21b914f6be218c0fa354a341');
     });
 
     it('should parse this compressed public key', function() {
-      var pk = PublicKey.fromBuffer(new Buffer('031ff0fe0f7b15ffaa85ff9f4744d539139c252a49710fb053bb9f2b933173ff9a', 'hex'));
+      var pk = PublicKey.fromBuffer(Buffer.from('031ff0fe0f7b15ffaa85ff9f4744d539139c252a49710fb053bb9f2b933173ff9a', 'hex'));
       pk.point.getX().toString(16).should.equal('1ff0fe0f7b15ffaa85ff9f4744d539139c252a49710fb053bb9f2b933173ff9a');
       pk.point.getY().toString(16).should.equal('7baad41d04514751e6851f5304fd243751703bed21b914f6be218c0fa354a341');
     });
 
     it('should throw an error on this invalid public key', function() {
       (function() {
-        PublicKey.fromBuffer(new Buffer('091ff0fe0f7b15ffaa85ff9f4744d539139c252a49710fb053bb9f2b933173ff9a', 'hex'));
+        PublicKey.fromBuffer(Buffer.from('091ff0fe0f7b15ffaa85ff9f4744d539139c252a49710fb053bb9f2b933173ff9a', 'hex'));
       }).should.throw();
     });
 
@@ -245,7 +248,7 @@ describe('PublicKey', function() {
 
     it('should throw error because buffer is the incorrect length', function() {
       (function() {
-        PublicKey.fromBuffer(new Buffer('041ff0fe0f7b15ffaa85ff9f4744d539139c252a49710fb053bb9f2b933173ff9a7baad41d04514751e6851f5304fd243751703bed21b914f6be218c0fa354a34112', 'hex'));
+        PublicKey.fromBuffer(Buffer.from('041ff0fe0f7b15ffaa85ff9f4744d539139c252a49710fb053bb9f2b933173ff9a7baad41d04514751e6851f5304fd243751703bed21b914f6be218c0fa354a34112', 'hex'));
       }).should.throw('Length of x and y must be 32 bytes');
     });
 
@@ -254,20 +257,20 @@ describe('PublicKey', function() {
   describe('#fromDER', function() {
 
     it('should parse this uncompressed public key', function() {
-      var pk = PublicKey.fromDER(new Buffer('041ff0fe0f7b15ffaa85ff9f4744d539139c252a49710fb053bb9f2b933173ff9a7baad41d04514751e6851f5304fd243751703bed21b914f6be218c0fa354a341', 'hex'));
+      var pk = PublicKey.fromDER(Buffer.from('041ff0fe0f7b15ffaa85ff9f4744d539139c252a49710fb053bb9f2b933173ff9a7baad41d04514751e6851f5304fd243751703bed21b914f6be218c0fa354a341', 'hex'));
       pk.point.getX().toString(16).should.equal('1ff0fe0f7b15ffaa85ff9f4744d539139c252a49710fb053bb9f2b933173ff9a');
       pk.point.getY().toString(16).should.equal('7baad41d04514751e6851f5304fd243751703bed21b914f6be218c0fa354a341');
     });
 
     it('should parse this compressed public key', function() {
-      var pk = PublicKey.fromDER(new Buffer('031ff0fe0f7b15ffaa85ff9f4744d539139c252a49710fb053bb9f2b933173ff9a', 'hex'));
+      var pk = PublicKey.fromDER(Buffer.from('031ff0fe0f7b15ffaa85ff9f4744d539139c252a49710fb053bb9f2b933173ff9a', 'hex'));
       pk.point.getX().toString(16).should.equal('1ff0fe0f7b15ffaa85ff9f4744d539139c252a49710fb053bb9f2b933173ff9a');
       pk.point.getY().toString(16).should.equal('7baad41d04514751e6851f5304fd243751703bed21b914f6be218c0fa354a341');
     });
 
     it('should throw an error on this invalid public key', function() {
       (function() {
-        PublicKey.fromDER(new Buffer('091ff0fe0f7b15ffaa85ff9f4744d539139c252a49710fb053bb9f2b933173ff9a', 'hex'));
+        PublicKey.fromDER(Buffer.from('091ff0fe0f7b15ffaa85ff9f4744d539139c252a49710fb053bb9f2b933173ff9a', 'hex'));
       }).should.throw();
     });
 
@@ -286,7 +289,7 @@ describe('PublicKey', function() {
   describe('#fromX', function() {
 
     it('should create this known public key', function() {
-      var x = BN.fromBuffer(new Buffer('1ff0fe0f7b15ffaa85ff9f4744d539139c252a49710fb053bb9f2b933173ff9a', 'hex'));
+      var x = BN.fromBuffer(Buffer.from('1ff0fe0f7b15ffaa85ff9f4744d539139c252a49710fb053bb9f2b933173ff9a', 'hex'));
       var pk = PublicKey.fromX(true, x);
       pk.point.getX().toString(16).should.equal('1ff0fe0f7b15ffaa85ff9f4744d539139c252a49710fb053bb9f2b933173ff9a');
       pk.point.getY().toString(16).should.equal('7baad41d04514751e6851f5304fd243751703bed21b914f6be218c0fa354a341');
@@ -294,7 +297,7 @@ describe('PublicKey', function() {
 
 
     it('should error because odd was not included as a param', function() {
-      var x = BN.fromBuffer(new Buffer('1ff0fe0f7b15ffaa85ff9f4744d539139c252a49710fb053bb9f2b933173ff9a', 'hex'));
+      var x = BN.fromBuffer(Buffer.from('1ff0fe0f7b15ffaa85ff9f4744d539139c252a49710fb053bb9f2b933173ff9a', 'hex'));
       (function() {
         return PublicKey.fromX(null, x);
       }).should.throw('Must specify whether y is odd or not (true or false)');
@@ -305,13 +308,13 @@ describe('PublicKey', function() {
   describe('#toBuffer', function() {
 
     it('should return this compressed DER format', function() {
-      var x = BN.fromBuffer(new Buffer('1ff0fe0f7b15ffaa85ff9f4744d539139c252a49710fb053bb9f2b933173ff9a', 'hex'));
+      var x = BN.fromBuffer(Buffer.from('1ff0fe0f7b15ffaa85ff9f4744d539139c252a49710fb053bb9f2b933173ff9a', 'hex'));
       var pk = PublicKey.fromX(true, x);
       pk.toBuffer().toString('hex').should.equal('031ff0fe0f7b15ffaa85ff9f4744d539139c252a49710fb053bb9f2b933173ff9a');
     });
 
     it('should return this uncompressed DER format', function() {
-      var x = BN.fromBuffer(new Buffer('1ff0fe0f7b15ffaa85ff9f4744d539139c252a49710fb053bb9f2b933173ff9a', 'hex'));
+      var x = BN.fromBuffer(Buffer.from('1ff0fe0f7b15ffaa85ff9f4744d539139c252a49710fb053bb9f2b933173ff9a', 'hex'));
       var pk = PublicKey.fromX(true, x);
       pk.toBuffer().toString('hex').should.equal('031ff0fe0f7b15ffaa85ff9f4744d539139c252a49710fb053bb9f2b933173ff9a');
     });
@@ -321,7 +324,7 @@ describe('PublicKey', function() {
   describe('#toDER', function() {
 
     it('should return this compressed DER format', function() {
-      var x = BN.fromBuffer(new Buffer('1ff0fe0f7b15ffaa85ff9f4744d539139c252a49710fb053bb9f2b933173ff9a', 'hex'));
+      var x = BN.fromBuffer(Buffer.from('1ff0fe0f7b15ffaa85ff9f4744d539139c252a49710fb053bb9f2b933173ff9a', 'hex'));
       var pk = PublicKey.fromX(true, x);
       pk.toDER().toString('hex').should.equal('031ff0fe0f7b15ffaa85ff9f4744d539139c252a49710fb053bb9f2b933173ff9a');
     });
@@ -351,7 +354,7 @@ describe('PublicKey', function() {
   describe('hashes', function() {
 
     // wif private key, address
-    // see: https://github.com/trivechain/dash/blob/master/src/test/key_tests.cpp#L20
+    // see: https://github.com/dashpay/dash/blob/master/src/test/key_tests.cpp#L20
     var data = [
       ['7qh6LYnLN2w2ntz2wwUhRUEgkQ2j8XB16FGw77ZRDZmC29bn7cD', 'Xywgfc872nn5CKtpATCoAjZCc4v96pJczy'],
       ['7rve4MxeWFQHGbSYH6J2yaaZd3MBUqoDEwN6ZAZ6ZHmhTT4r3hW', 'XpmouUj9KKJ99ZuU331ZS1KqsboeFnLGgK'],
@@ -409,7 +412,7 @@ describe('PublicKey', function() {
       var hex = '041ff0fe0f7b15ffaa85ff9f4744d539139c252a49710fb053bb9f2b933173ff9a0000000000000000000000000000000000000000000000000000000000000000';
       (function() {
         return PublicKey.fromString(hex);
-      }).should.throw('Invalid x,y value for curve, cannot equal 0.');
+      }).should.throw('Invalid y value for curve.');
     });
 
     it('should throw an error if pubkey is invalid', function() {

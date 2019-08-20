@@ -1,3 +1,6 @@
+/* eslint-disable */
+// TODO: Remove previous line and work through linting issues at next edit
+
 'use strict';
 
 var _ = require('lodash');
@@ -54,7 +57,7 @@ describe('Opcode', function() {
 
   describe('#buffer', function() {
     it('should correctly input/output a buffer', function() {
-      var buf = new Buffer('a6', 'hex');
+      var buf = Buffer.from('a6', 'hex');
       Opcode.fromBuffer(buf).toBuffer().should.deep.equal(buf);
     });
   });

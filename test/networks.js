@@ -1,3 +1,6 @@
+/* eslint-disable */
+// TODO: Remove previous line and work through linting issues at next edit
+
 'use strict';
 
 var expect = require('chai').expect;
@@ -17,17 +20,17 @@ describe('Networks', function() {
 
   it('will enable/disable regtest Network', function() {
     networks.enableRegtest();
-    networks.testnet.networkMagic.should.deep.equal(new Buffer('fcc1b7dc', 'hex'));
+    networks.testnet.networkMagic.should.deep.equal(Buffer.from('fcc1b7dc', 'hex'));
     networks.testnet.port.should.equal(19994);
     networks.testnet.dnsSeeds.should.deep.equal([]);
     networks.testnet.regtestEnabled.should.equal(true);
 
     networks.disableRegtest();
-    networks.testnet.networkMagic.should.deep.equal(new Buffer('cee2caff', 'hex'));
+    networks.testnet.networkMagic.should.deep.equal(Buffer.from('cee2caff', 'hex'));
     networks.testnet.port.should.equal(19999);
     networks.testnet.dnsSeeds.should.deep.equal([
      'testnet-seed.darkcoin.io',
-     'testnet-seed.dashdot.io',
+     'testnet-seed.trivechaindot.io',
      'test.dnsseed.masternode.io'
     ]);
   });
@@ -59,7 +62,7 @@ describe('Networks', function() {
       if (key !== 'networkMagic') {
         customnet[key].should.equal(custom[key]);
       } else {
-        var expected = new Buffer('e7beb4d4', 'hex');
+        var expected = Buffer.from('e7beb4d4', 'hex');
         customnet[key].should.deep.equal(expected);
       }
     }

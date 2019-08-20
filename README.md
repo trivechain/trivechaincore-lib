@@ -1,97 +1,122 @@
-bitcore-trvc Library
-=======
+# trivechaincore Library
 
-[![NPM Package](https://img.shields.io/npm/v/bitcore-lib-trvc.svg?style=flat-square)](https://www.npmjs.org/package/bitcore-lib-trvc)
-[![Build Status](https://img.shields.io/travis/trivechain/bitcore-lib-trvc.svg?branch=master&style=flat-square)](https://travis-ci.org/trivechain/bitcore-lib-trvc)
-[![Coverage Status](https://img.shields.io/coveralls/trivechain/bitcore-lib-trvc.svg?style=flat-square)](https://coveralls.io/github/trivechain/bitcore-lib-trvc?branch=master)
+[![Build Status](https://img.shields.io/travis/trivechain/trivechaincore-lib.svg?branch=master)](https://travis-ci.org/trivechain/trivechaincore-lib)
+[![NPM Package](https://img.shields.io/npm/v/trivechain/trivechaincore-lib.svg)](https://www.npmjs.org/package/trivechain/trivechaincore-lib)
 
-A pure and powerful JavaScript Dash library.
+> A pure and powerful JavaScript Trivechain library.
 
-## Principles
+Trivechain is a powerful new peer-to-peer platform for the next generation of financial technology. The decentralized nature of the Trivechain network allows for highly resilient Trivechain infrastructure, and the developer community needs reliable, open-source tools to implement Trivechain apps and services.
 
-Dash is a powerful new peer-to-peer platform for the next generation of financial technology. The decentralized nature of the Dash network allows for highly resilient dash infrastructure, and the developer community needs reliable, open-source tools to implement dash apps and services.
+## Table of Contents
+- [Install](#install)
+- [Usage](#usage)
+- [Documentation](#documentation)
+- [Contributing](#contributing)
+- [License](#license)
 
-## Get Started
+## Install
+
+### NodeJS
 
 ```
-npm install bitcore-lib-trvc
+npm install trivechain/trivechaincore-lib
 ```
 
-```
-bower install bitcore-lib-trvc
-```
+### Browser
 
-## Documentation
+See the section below to generate your own bundle, or download the pre-generated [minified file](dist/trivechaincore-lib.min.js)
 
-The complete docs are hosted here: [bitcore documentation](http://bitcore.io/guide/). There's also a [bitcore API reference](http://bitcore.io/api/) available generated from the JSDocs of the project, where you'll find low-level details on each bitcore utility.
+#### Building the Browser Bundle
 
-- [Read the Developer Guide](http://bitcore.io/guide/)
-- [Read the API Reference](http://bitcore.io/api/)
-
-To get community assistance and ask for help with implementation questions, please use our [community forums](https://forum.bitcore.io/).
-
-## Examples
-
-* [Generate a random address](https://github.com/trivechain/bitcore-lib-trvc/blob/master/docs/examples.md#generate-a-random-address)
-* [Generate a address from a SHA256 hash](https://github.com/trivechain/bitcore-lib-trvc/blob/master/docs/examples.md#generate-a-address-from-a-sha256-hash)
-* [Import an address via WIF](https://github.com/trivechain/bitcore-lib-trvc/blob/master/docs/examples.md#import-an-address-via-wif)
-* [Create a Transaction](https://github.com/trivechain/bitcore-lib-trvc/blob/master/docs/examples.md#create-a-transaction)
-* [Sign a Dash message](https://github.com/trivechain/bitcore-lib-trvc/blob/master/docs/examples.md#sign-a-bitcoin-message)
-* [Verify a Dash message](https://github.com/trivechain/bitcore-lib-trvc/blob/master/docs/examples.md#verify-a-bitcoin-message)
-* [Create an OP RETURN transaction](https://github.com/trivechain/bitcore-lib-trvc/blob/master/docs/examples.md#create-an-op-return-transaction)
-* [Create a 2-of-3 multisig P2SH address](https://github.com/trivechain/bitcore-lib-trvc/blob/master/docs/examples.md#create-a-2-of-3-multisig-p2sh-address)
-* [Spend from a 2-of-2 multisig P2SH address](https://github.com/trivechain/bitcore-lib-trvc/blob/master/docs/examples.md#spend-from-a-2-of-2-multisig-p2sh-address)
-
-
-## Security
-
-We're using Bitcore in production, as are [many others](http://bitcore.io#projects), but please use common sense when doing anything related to finances! We take no responsibility for your implementation decisions.
-
-If you find a security issue, please email security@bitpay.com.
-
-## Contributing
-
-Please send pull requests for bug fixes, code optimization, and ideas for improvement. For more information on how to contribute, please refer to our [CONTRIBUTING](https://github.com/trivechain/bitcore-lib-trvc/blob/master/CONTRIBUTING.md) file.
-
-## Building the Browser Bundle
-
-To build a bitcore-lib-trvc full bundle for the browser:
+To build a trivechaincore-lib full bundle for the browser:
 
 ```sh
-gulp browser
+npm run build
 ```
 
-This will generate files named `bitcore-lib-trvc.js` and `bitcore-lib-trvc.min.js`.
+This will generate files named `trivechaincore-lib.js` and `trivechaincore-lib.min.js` in the `dist/` folder.
 
-You can also use our pre-generated files, provided for each release along with a PGP signature by one of the project's maintainers. To get them, checkout a release commit (for example, https://github.com/trivechain/bitcore-lib-trvc/commit/e33b6e3ba6a1e5830a079e02d949fce69ea33546 for v0.12.6).
+## Usage
 
-To verify signatures, use the following PGP keys:
-- @braydonf: https://pgp.mit.edu/pks/lookup?op=get&search=0x9BBF07CAC07A276D `D909 EFE6 70B5 F6CC 89A3 607A 9BBF 07CA C07A 276D`
-- @gabegattis: https://pgp.mit.edu/pks/lookup?op=get&search=0x441430987182732C `F3EA 8E28 29B4 EC93 88CB  B0AA 4414 3098 7182 732C`
-- @kleetus: https://pgp.mit.edu/pks/lookup?op=get&search=0x33195D27EF6BDB7F `F8B0 891C C459 C197 65C2 5043 3319 5D27 EF6B DB7F`
-- @matiu: https://pgp.mit.edu/pks/lookup?op=get&search=0x9EDE6DE4DE531FAC `25CE ED88 A1B1 0CD1 12CD  4121 9EDE 6DE4 DE53 1FAC`
+### Browser
 
+```
+<script src='./dist/trivechaincore-lib.min.js' type="text/javascript"></script>
+<script>
+  const PrivateKey = trivechaincore.PrivateKey;
+  const privateKey = new PrivateKey();
+  const address = privateKey.toAddress().toString();
+</script>
+```
 
-## Development & Tests
+### Modules
+
+Some functionality is implemented as a module that can be installed separately:
+
+* [Payment Protocol Support](https://github.com/trivechain/trivechaincore-payment-protocol)
+* [Peer to Peer Networking](https://github.com/trivechain/trivechaincore-p2p)
+* [Trivechain Core JSON-RPC](https://github.com/trivechain/trivechaind-rpc)
+* [Payment Channels](https://github.com/trivechain/trivechaincore-channel)
+* [Mnemonics](https://github.com/trivechain/trivechaincore-mnemonic)
+* [Elliptical Curve Integrated Encryption Scheme](https://github.com/trivechain/bitcore-ecies-dash)
+* [Signed Messages](https://github.com/trivechain/bitcore-message-dash)
+
+### Development & Tests
 
 ```sh
-git clone https://github.com/trivechain/bitcore-lib-trvc
-cd bitcore-lib-trvc
+git clone https://github.com/trivechain/trivechaincore-lib
+cd trivechaincore-lib
 npm install
 ```
 
 Run all the tests:
 
 ```sh
-gulp test
+npm test
 ```
 
-You can also run just the Node.js tests with `gulp test:node`, just the browser tests with `gulp test:browser`
-or create a test coverage report (you can open `coverage/lcov-report/index.html` to visualize it) with `gulp coverage`.
+You can also run just the Node.js tests with `npm run test:node`, just the browser tests with `npm run test:browser` or run a test coverage report with `npm run coverage`.
+
+## Documentation
+
+* [Addresses](docs/address.md)
+* [Block](docs/block.md)
+* [Crypto](docs/crypto.md)
+* [Encoding](docs/encoding.md)
+* [Hierarchically-derived Private and Public Keys](docs/hierarchical.md)
+* [Mnemonic](docs/mnemonic.md)
+* [Networks](docs/networks.md)
+* [PrivateKey](docs/privatekey.md)
+* [PublicKey](docs/publickey.md)
+* [Script](docs/script.md)
+* [Transaction](docs/transaction.md)
+* [Using Different Units](docs/unit.md)
+* [Unspent Output](docs/unspentoutput.md)
+* [URI](docs/uri.md)
+* [Governance Object / Proposal](docs/govobject/govobject.md)
+
+### Examples
+
+Some examples can be found [here](docs/examples.md), below is a list of direct links for some of them.
+
+* [Generate a random address](docs/examples.md#generate-a-random-address)
+* [Generate an address from a SHA256 hash](docs/examples.md#generate-a-address-from-a-sha256-hash)
+* [Import an address via WIF](docs/examples.md#import-an-address-via-wif)
+* [Create a Transaction](docs/examples.md#create-a-transaction)
+* [Sign a Trivechain message](docs/examples.md#sign-a-bitcoin-message)
+* [Verify a Trivechain message](docs/examples.md#verify-a-bitcoin-message)
+* [Create an OP RETURN transaction](docs/examples.md#create-an-op-return-transaction)
+* [Create a 2-of-3 multisig P2SH address](docs/examples.md#create-a-2-of-3-multisig-p2sh-address)
+* [Spend from a 2-of-2 multisig P2SH address](docs/examples.md#spend-from-a-2-of-2-multisig-p2sh-address)
+
+## Contributing
+
+Please send pull requests for bug fixes, code optimization, and ideas for improvement. For more information on how to contribute, please refer to our [CONTRIBUTING](https://github.com/trivechain/trivechaincore-lib/blob/master/CONTRIBUTING.md) file.
 
 ## License
 
-Code released under [the MIT license](https://github.com/trivechain/bitcore-lib-trvc/blob/master/LICENSE).
+Code released under [the MIT license](LICENSE).
 
-Copyright 2013-2017 BitPay, Inc. Bitcore is a trademark maintained by BitPay, Inc.
-Copyright 2016-2017 The Dash Foundation, Inc.
+Copyright 2013-2017 BitPay, Inc. Bitcore is a trademark maintained by BitPay, Inc.  
+Copyright 2016-2017 The Trivechain Foundation, Inc.  
+Copyright 2017-2018 Trivechain Core Group, Inc.  

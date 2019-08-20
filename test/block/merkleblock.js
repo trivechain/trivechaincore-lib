@@ -1,6 +1,12 @@
+/* eslint-disable */
+// TODO: Remove previous line and work through linting issues at next edit
+
 'use strict';
 
-var should = require('chai').should();
+var chai = require('chai');
+
+var should = chai.should();
+var expect = chai.expect;
 
 var bitcore = require('../..');
 var MerkleBlock = bitcore.MerkleBlock;
@@ -13,7 +19,7 @@ var transactionVector = require('../data/tx_creation');
 
 describe('MerkleBlock', function() {
   var blockhex  = data.HEX[0];
-  var blockbuf  = new Buffer(blockhex,'hex');
+  var blockbuf  = Buffer.from(blockhex,'hex');
   var blockJSON = JSON.stringify(data.JSON[0]);
   var blockObject = JSON.parse(JSON.stringify(data.JSON[0]));
 
@@ -60,7 +66,7 @@ describe('MerkleBlock', function() {
 
     it('accepts an object as argument', function() {
       var block = MerkleBlock(blockbuf);
-      MerkleBlock.fromObject(block.toObject()).should.exist();
+      MerkleBlock.fromObject(block.toObject()).should.exist;
     });
 
   });
@@ -156,7 +162,7 @@ describe('MerkleBlock', function() {
 
     it('should find transactions via hash string', function() {
       var jsonData = data.JSON[1];
-      var txId = new Buffer(jsonData.hashes[2],'hex').toString('hex');
+      var txId = Buffer.from(jsonData.hashes[2],'hex').toString('hex');
       var b = MerkleBlock(jsonData);
       b.hasTransaction(txId).should.equal(true);
       b.hasTransaction(txId + 'abcd').should.equal(false);
@@ -164,7 +170,7 @@ describe('MerkleBlock', function() {
 
     it('should find transactions via Transaction object', function() {
       var jsonData = data.JSON[1];
-      var txBuf = new Buffer(data.TXHEX[0][1],'hex');
+      var txBuf = Buffer.from(data.TXHEX[0][1],'hex');
       var tx = new Transaction().fromBuffer(txBuf);
       var b = MerkleBlock(jsonData);
       b.hasTransaction(tx).should.equal(true);
@@ -172,8 +178,8 @@ describe('MerkleBlock', function() {
 
     it('should not find non-existant Transaction object', function() {
       // Reuse another transaction already in data/ dir
-      var serialized = transactionVector[0][7];
-      var tx = new Transaction().fromBuffer(new Buffer(serialized, 'hex'));
+      var serialized = transactionVector[0][9];
+      var tx = new Transaction().fromBuffer(Buffer.from(serialized, 'hex'));
       var b = MerkleBlock(data.JSON[0]);
       b.hasTransaction(tx).should.equal(false);
     });
@@ -199,6 +205,54 @@ describe('MerkleBlock', function() {
     });
 
   });
+
+  describe('getMatchedTransactionHashes', function () {
+    var getMatchedTransactionsTestCases = [
+      {
+        filterMatches: [true, false, false, false, false],
+        expectedMatchedTransactionHashes: [
+          '7622a8766251223eecf7820bbb116f4889c48cc9942d08f4687033e8f59431ab',
+        ]
+      },
+      {
+        filterMatches: [true, false, true, false, false],
+        expectedMatchedTransactionHashes: [
+          '7622a8766251223eecf7820bbb116f4889c48cc9942d08f4687033e8f59431ab',
+          'a13000f587c512c01bc53f844966b5c72622098031431eb919e2b82507215391'
+        ]
+      },
+      {
+        filterMatches: [false, false, false, false, true],
+        expectedMatchedTransactionHashes: [
+          '7262476912a96b9a6226cfa3a8f231ba3e2b1f75c396e88367e532c79c43c95b'
+        ]
+      }
+    ];
+    getMatchedTransactionsTestCases.forEach(function(testCase, index) {
+      it('should return an array of matched transactions, case #' + index, function () {
+        var transactionHashHexes = [
+          '7622a8766251223eecf7820bbb116f4889c48cc9942d08f4687033e8f59431ab',
+          '94a469e14ef925159b1154081ace607c7b0f4d342d3e62c5fef0d3ce56dbe7d4',
+          'a13000f587c512c01bc53f844966b5c72622098031431eb919e2b82507215391',
+          '3f3517ee8fa95621fe8abdd81c1e0dfb50e21dd4c5a3c01eee2c47cf664821b6',
+          '7262476912a96b9a6226cfa3a8f231ba3e2b1f75c396e88367e532c79c43c95b'
+        ];
+        var transactionHashes = transactionHashHexes.map(function (hash) {
+          return Buffer.from(hash, 'hex');
+        });
+
+        var merkleBlock = MerkleBlock.build(
+          data.JSON[1].header,
+          transactionHashes,
+          testCase.filterMatches
+        );
+
+        var actualMatchedTransactionHashes = merkleBlock.getMatchedTransactionHashes();
+        expect(actualMatchedTransactionHashes.length).to.be.equal(testCase.expectedMatchedTransactionHashes.length);
+        expect(actualMatchedTransactionHashes).to.be.deep.equal(testCase.expectedMatchedTransactionHashes);
+      });
+    });
+  })
 
 });
 
