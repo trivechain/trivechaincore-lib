@@ -115,6 +115,7 @@
     "inherits": "=2.0.1",
     "lodash": "^4.17.15",
     "node-x16r": "^1.0.0",
+    "node-x16rv2": "github:underdarkskies/x16rv2_hash",
     "unorm": "^1.4.1",
     "x11-hash-js": "^1.0.1"
   },
