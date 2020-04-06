@@ -1,7 +1,9 @@
 # trivechaincore Library
 
-[![Build Status](https://img.shields.io/travis/trivechain/trivechaincore-lib.svg?branch=master)](https://travis-ci.org/trivechain/trivechaincore-lib)
 [![NPM Package](https://img.shields.io/npm/v/@trivechain/trivechaincore-lib.svg)](https://www.npmjs.org/package/@trivechain/trivechaincore-lib)
+<a href="https://travis-ci.org/trivechain/trivechain/trivechaincore-lib"><img src="https://travis-ci.org/trivechain/trivechaincore-lib.svg?branch=master" alt="travis"></a>
+<a href='https://coveralls.io/github/trivechain/trivechaincore-lib?branch=master'><img src='https://coveralls.io/repos/github/trivechain/trivechaincore-lib/badge.svg?branch=master' alt='Coverage Status' /></a>
+<img alt="node" src="https://img.shields.io/node/v/@trivechain/trivechaincore-lib">
 
 > A pure and powerful JavaScript Trivechain library.
 
