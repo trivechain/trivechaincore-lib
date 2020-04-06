@@ -90,7 +90,7 @@ Both `PublicKeyHashInput` and `MultisigScriptHashInput` cache the information ab
 
 Some methods related to adding inputs are:
 - `from`: A high level interface to add an input from a UTXO. It has a series of variants:
-  - `from(utxo)`: add an input from an [Unspent Transaction Output](http://bitcore.io/guide/unspentoutput.html). Currently, only P2PKH outputs are supported.
+  - `from(utxo)`: add an input from an [Unspent Transaction Output](https://trivechain.github.io/trivechaincore-lib/unspentoutput). Currently, only P2PKH outputs are supported.
   - `from(utxos)`: same as above, but passing in an array of Unspent Outputs.
   - `from(utxo, publicKeys, threshold)`: add an input that spends a UTXO with a P2SH output for a Multisig script. The `publicKeys` argument is an array of public keys, and `threshold` is the number of required signatures in the Multisig script.
 
@@ -106,7 +106,7 @@ This input contains a set of signatures in a `signatures` property, and each tim
 ## Signing a Transaction
 The following methods are used to manage signatures for a transaction:
 - `getSignatures`: takes an array of `PrivateKey` or strings from which a `PrivateKey` can be instantiated; the transaction to be signed; the kind of [signature hash to use](https://bitcoin.org/en/developer-guide#signature-hash-types). Returns an array of objects with the following properties:
-  - `signature`: an instance of [Signature](https://github.com/bitpay/bitcore/blob/master/lib/crypto/signature.js)
+  - `signature`: an instance of [Signature](https://github.com/bitpay/trivechaincore/blob/master/lib/crypto/signature.js)
   - `prevTxId`: this input's `prevTxId`,
   - `outputIndex`: this input's `outputIndex`,
   - `inputIndex`: this input's index in the transaction
@@ -129,7 +129,7 @@ To remove all outputs, you can use `clearOutputs()`, which preserves change outp
 There are a series of methods used for serialization:
 - `toObject`: Returns a plain JavaScript object with no methods and enough information to fully restore the state of this transaction. Using other serialization methods (except for `toJSON`) will cause some information to be lost.
 - `toJSON`: Will be called when using `JSON.stringify` to return JSON-encoded string using the output from `toObject`.
-- `toString` or `uncheckedSerialize`: Returns an hexadecimal serialization of the transaction, in the [serialization format for Bitcoin](https://bitcoin.org/en/developer-reference#raw-transaction-format).
+- `toString` or `uncheckedSerialize`: Returns an hexadecimal serialization of the transaction, in the [serialization format for Trivechain](https://bitcoin.org/en/developer-reference#raw-transaction-format).
 - `serialize`: Does a series of checks before serializing the transaction
 - `inspect`: Returns a string with some information about the transaction (currently a string formatted as `<Transaction 000...000>`, that only shows the serialized value of the transaction.
 - `toBuffer`: Serializes the transaction for sending over the wire in the Trivechain network
@@ -161,7 +161,7 @@ For this reason, some methods in the Transaction class are provided:
 Internally, a `_changeIndex` property stores the index of the change output (so it can get updated when a new input or output is added).
 
 ## Time-Locking transaction
-All Trivechain transactions contain a locktime field. The locktime indicates the earliest time a transaction can be added to the blockchain. Locktime allows signers to create time-locked transactions which will only become valid in the future, giving the signers a chance to change their minds. Locktime can be set in the form of a Trivechain block height (the transaction can only be included in a block with a higher height than specified) or a Linux timestamp (transaction can only be confirmed after that time). For more information see [Bitcoin's development guide section on locktime](https://bitcoin.org/en/developer-guide#locktime-and-sequence-number).
+All Trivechain transactions contain a locktime field. The locktime indicates the earliest time a transaction can be added to the blockchain. Locktime allows signers to create time-locked transactions which will only become valid in the future, giving the signers a chance to change their minds. Locktime can be set in the form of a Trivechain block height (the transaction can only be included in a block with a higher height than specified) or a Linux timestamp (transaction can only be confirmed after that time). For more information see [Trivechain's development guide section on locktime](https://bitcoin.org/en/developer-guide#locktime-and-sequence-number).
 
 In trivechaincore, you can set a `Transaction`'s locktime by using the methods `Transaction#lockUntilDate` and `Transaction#lockUntilBlockHeight`. You can also get a friendly version of the locktime field via `Transaction#getLockTime`;
 

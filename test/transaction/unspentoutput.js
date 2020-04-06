@@ -8,8 +8,8 @@ var chai = require('chai');
 var should = chai.should();
 var expect = chai.expect;
 
-var bitcore = require('../..');
-var UnspentOutput = bitcore.Transaction.UnspentOutput;
+var trivechaincore = require('../..');
+var UnspentOutput = trivechaincore.Transaction.UnspentOutput;
 
 describe('UnspentOutput', function() {
 

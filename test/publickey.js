@@ -6,13 +6,13 @@
 var should = require('chai').should();
 var expect = require('chai').expect;
 
-var bitcore = require('..');
-var Point = bitcore.crypto.Point;
-var BN = bitcore.crypto.BN;
-var PublicKey = bitcore.PublicKey;
-var PrivateKey = bitcore.PrivateKey;
-var Address = bitcore.Address;
-var Networks = bitcore.Networks;
+var trivechaincore = require('..');
+var Point = trivechaincore.crypto.Point;
+var BN = trivechaincore.crypto.BN;
+var PublicKey = trivechaincore.PublicKey;
+var PrivateKey = trivechaincore.PrivateKey;
+var Address = trivechaincore.Address;
+var Networks = trivechaincore.Networks;
 
 /* jshint maxlen: 200 */
 

@@ -6,7 +6,7 @@ We're working hard to make *trivechaincore-lib* the most powerful JavaScript lib
 
 If there are any questions, etc., please feel to ask in one of the community channels:
 
-- https://www.trivechain.com/forum (Support Forum)
+- https://discord.gg/mZuXBxW (Discord Support Forum)
 
 ## Quick Checklist
 

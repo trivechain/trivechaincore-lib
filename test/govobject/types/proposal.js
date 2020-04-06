@@ -10,12 +10,12 @@ var expect = require('chai').expect;
 var _ = require('lodash');
 var sinon = require('sinon');
 
-var bitcore = require('../../..');
-var BufferReader = bitcore.encoding.BufferReader;
-var BufferWriter = bitcore.encoding.BufferWriter;
+var trivechaincore = require('../../..');
+var BufferReader = trivechaincore.encoding.BufferReader;
+var BufferWriter = trivechaincore.encoding.BufferWriter;
 
-var Proposal = bitcore.GovObject.Proposal;
-var errors = bitcore.errors;
+var Proposal = trivechaincore.GovObject.Proposal;
+var errors = trivechaincore.errors;
 
 // TODO: create Proposal from object
 
@@ -256,7 +256,7 @@ describe('Proposal', function() {
   });
 
   it('should create a new proposal from a hex string', function() {
-    var Proposal = bitcore.GovObject.Proposal;
+    var Proposal = trivechaincore.GovObject.Proposal;
     var proposal = new Proposal(expectedHex);
 
     expect(proposal instanceof Proposal);

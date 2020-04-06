@@ -22,12 +22,12 @@ console.log(uri.address.network, uri.amount); // 'livenet', 120000000
 ```
 
 ## URI Parameters
-All standard parameters can be found as members of the `URI` instance. However a Bitcoin URI may contain other non-standard parameters, all those can be found under the `extra` namespace.
+All standard parameters can be found as members of the `URI` instance. However a Trivechain URI may contain other non-standard parameters, all those can be found under the `extra` namespace.
 
 See [the official BIP21 spec](https://github.com/bitcoin/bips/blob/master/bip-0021.mediawiki) for more information.
 
 ## Create URI
-Another important use case for the `URI` class is creating a Bitcoin URI for sharing a payment request. That can be accomplished by using a dictionary to create an instance of URI.
+Another important use case for the `URI` class is creating a Trivechain URI for sharing a payment request. That can be accomplished by using a dictionary to create an instance of URI.
 
 The code for creating an URI from an Object looks like this:
 

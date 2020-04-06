@@ -8,13 +8,13 @@ var should = require('chai').should();
 var expect = require('chai').expect;
 var _ = require('lodash');
 
-var bitcore = require('../../..');
-var Transaction = bitcore.Transaction;
-var PrivateKey = bitcore.PrivateKey;
-var Address = bitcore.Address;
-var Script = bitcore.Script;
-var Signature = bitcore.crypto.Signature;
-var MultiSigInput = bitcore.Transaction.Input.MultiSig;
+var trivechaincore = require('../../..');
+var Transaction = trivechaincore.Transaction;
+var PrivateKey = trivechaincore.PrivateKey;
+var Address = trivechaincore.Address;
+var Script = trivechaincore.Script;
+var Signature = trivechaincore.crypto.Signature;
+var MultiSigInput = trivechaincore.Transaction.Input.MultiSig;
 
 describe('MultiSigInput', function() {
 

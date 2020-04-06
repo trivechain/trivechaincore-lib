@@ -5,8 +5,8 @@
 
 var expect = require('chai').expect;
 var should = require('chai').should();
-var bitcore = require('..');
-var networks = bitcore.Networks;
+var trivechaincore = require('..');
+var networks = trivechaincore.Networks;
 
 describe('Networks', function() {
 

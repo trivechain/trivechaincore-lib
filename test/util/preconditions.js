@@ -5,10 +5,10 @@
 
 var should = require('chai').should();
 
-var bitcore = require('../..');
-var errors = bitcore.errors;
-var $ = bitcore.util.preconditions;
-var PrivateKey = bitcore.PrivateKey;
+var trivechaincore = require('../..');
+var errors = trivechaincore.errors;
+var $ = trivechaincore.util.preconditions;
+var PrivateKey = trivechaincore.PrivateKey;
 
 describe('preconditions', function() {
 

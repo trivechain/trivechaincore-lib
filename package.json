@@ -1,8 +1,8 @@
 {
-  "name": "trivechaincore-lib",
-  "version": "0.17.9",
+  "name": "@trivechain/trivechaincore-lib",
+  "version": "0.18.0",
   "description": "A pure and powerful JavaScript Trivechain library.",
-  "author": "TriveAcademy Sdn Bhd <js@trive.academy>",
+  "author": "Trivechain Limited <dev@trivechain.com>",
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
@@ -109,14 +109,15 @@
   },
   "dependencies": {
     "@dashevo/x11-hash-js": "^1.0.2",
+    "@trivechain/x16r-hash-js": "^1.0.0",
+    "@trivechain/x16rv2-hash-js": "^1.0.1",
+    "@types/node": "^12.12.12",
     "bloom-filter": "^0.2.0",
     "bn.js": "=4.11.8",
     "bs58": "=4.0.1",
     "elliptic": "=6.4.1",
     "inherits": "=2.0.1",
     "lodash": "^4.17.15",
-    "node-x16r": "^1.0.0",
-    "node-x16rv2": "github:underdarkskies/x16rv2_hash",
     "unorm": "^1.4.1"
   },
   "devDependencies": {

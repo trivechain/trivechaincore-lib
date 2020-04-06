@@ -4,8 +4,8 @@
 'use strict';
 
 var should = require('chai').should();
-var bitcore = require('../..');
-var Base58 = bitcore.encoding.Base58;
+var trivechaincore = require('../..');
+var Base58 = trivechaincore.encoding.Base58;
 
 describe('Base58', function() {
   var buf = Buffer.from([0, 1, 2, 3, 253, 254, 255]);

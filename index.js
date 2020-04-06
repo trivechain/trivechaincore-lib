@@ -3,78 +3,79 @@
 
 'use strict';
 
-var bitcore = module.exports;
+var trivechaincore = module.exports;
 
 // module information
-bitcore.version = 'v' + require('./package.json').version;
-bitcore.versionGuard = function(version) {
+trivechaincore.version = 'v' + require('./package.json').version;
+trivechaincore.versionGuard = function(version) {
   if (version !== undefined) {
     var message = 'More than one instance of trivechaincore-lib found. ' +
       'Please make sure that you are not mixing instances of classes of the different versions of trivechaincore.';
     console.warn(message);
   }
 };
-bitcore.versionGuard(global._trivechaincore);
-global._trivechaincore = bitcore.version;
+trivechaincore.versionGuard(global._trivechaincore);
+global._trivechaincore = trivechaincore.version;
 
 // crypto
-bitcore.crypto = {};
-bitcore.crypto.BN = require('./lib/crypto/bn');
-bitcore.crypto.ECDSA = require('./lib/crypto/ecdsa');
-bitcore.crypto.Hash = require('./lib/crypto/hash');
-bitcore.crypto.Random = require('./lib/crypto/random');
-bitcore.crypto.Point = require('./lib/crypto/point');
-bitcore.crypto.Signature = require('./lib/crypto/signature');
+trivechaincore.crypto = {};
+trivechaincore.crypto.BN = require('./lib/crypto/bn');
+trivechaincore.crypto.ECDSA = require('./lib/crypto/ecdsa');
+trivechaincore.crypto.Hash = require('./lib/crypto/hash');
+trivechaincore.crypto.Random = require('./lib/crypto/random');
+trivechaincore.crypto.Point = require('./lib/crypto/point');
+trivechaincore.crypto.Signature = require('./lib/crypto/signature');
+trivechaincore.Signer = require('./lib/crypto/signer');
 
 // encoding
-bitcore.encoding = {};
-bitcore.encoding.Base58 = require('./lib/encoding/base58');
-bitcore.encoding.Base58Check = require('./lib/encoding/base58check');
-bitcore.encoding.BufferReader = require('./lib/encoding/bufferreader');
-bitcore.encoding.BufferWriter = require('./lib/encoding/bufferwriter');
-bitcore.encoding.Varint = require('./lib/encoding/varint');
+trivechaincore.encoding = {};
+trivechaincore.encoding.Base58 = require('./lib/encoding/base58');
+trivechaincore.encoding.Base58Check = require('./lib/encoding/base58check');
+trivechaincore.encoding.BufferReader = require('./lib/encoding/bufferreader');
+trivechaincore.encoding.BufferWriter = require('./lib/encoding/bufferwriter');
+trivechaincore.encoding.Varint = require('./lib/encoding/varint');
 
 // utilities
-bitcore.util = {};
-bitcore.util.buffer = require('./lib/util/buffer');
-bitcore.util.js = require('./lib/util/js');
-bitcore.util.preconditions = require('./lib/util/preconditions');
-bitcore.util.hashUtil = require('./lib/util/hashutil');
-bitcore.util.merkleTree = require('./lib/util/merkletree');
+trivechaincore.util = {};
+trivechaincore.util.buffer = require('./lib/util/buffer');
+trivechaincore.util.js = require('./lib/util/js');
+trivechaincore.util.preconditions = require('./lib/util/preconditions');
+trivechaincore.util.hashUtil = require('./lib/util/hashutil');
+trivechaincore.util.merkleTree = require('./lib/util/merkletree');
 
 // errors thrown by the library
-bitcore.errors = require('./lib/errors');
+trivechaincore.errors = require('./lib/errors');
 
 // main bitcoin library
-bitcore.Address = require('./lib/address');
-bitcore.Block = require('./lib/block');
-bitcore.MerkleBlock = require('./lib/block/merkleblock');
-bitcore.SimplifiedMNList = require('./lib/deterministicmnlist/SimplifiedMNList');
-bitcore.SimplifiedMNListDiff = require('./lib/deterministicmnlist/SimplifiedMNListDiff');
-bitcore.SimplifiedMNListEntry = require('./lib/deterministicmnlist/SimplifiedMNListEntry');
-bitcore.BlockHeader = require('./lib/block/blockheader');
-bitcore.HDPrivateKey = require('./lib/hdprivatekey.js');
-bitcore.HDPublicKey = require('./lib/hdpublickey.js');
-bitcore.Networks = require('./lib/networks');
-bitcore.Opcode = require('./lib/opcode');
-bitcore.PrivateKey = require('./lib/privatekey');
-bitcore.PublicKey = require('./lib/publickey');
-bitcore.Script = require('./lib/script');
-bitcore.Transaction = require('./lib/transaction');
-bitcore.GovObject = require('./lib/govobject');
-bitcore.URI = require('./lib/uri');
-bitcore.Unit = require('./lib/unit');
-bitcore.Message = require('./lib/message');
-bitcore.Mnemonic = require('./lib/mnemonic');
-bitcore.BloomFilter = require('./lib/bloomfilter');
+trivechaincore.Address = require('./lib/address');
+trivechaincore.Block = require('./lib/block');
+trivechaincore.MerkleBlock = require('./lib/block/merkleblock');
+trivechaincore.SimplifiedMNList = require('./lib/deterministicmnlist/SimplifiedMNList');
+trivechaincore.SimplifiedMNListDiff = require('./lib/deterministicmnlist/SimplifiedMNListDiff');
+trivechaincore.SimplifiedMNListEntry = require('./lib/deterministicmnlist/SimplifiedMNListEntry');
+trivechaincore.BlockHeader = require('./lib/block/blockheader');
+trivechaincore.HDPrivateKey = require('./lib/hdprivatekey.js');
+trivechaincore.HDPublicKey = require('./lib/hdpublickey.js');
+trivechaincore.Networks = require('./lib/networks');
+trivechaincore.Opcode = require('./lib/opcode');
+trivechaincore.PrivateKey = require('./lib/privatekey');
+trivechaincore.PublicKey = require('./lib/publickey');
+trivechaincore.Script = require('./lib/script');
+trivechaincore.Transaction = require('./lib/transaction');
+trivechaincore.GovObject = require('./lib/govobject');
+trivechaincore.URI = require('./lib/uri');
+trivechaincore.Unit = require('./lib/unit');
+trivechaincore.Message = require('./lib/message');
+trivechaincore.Mnemonic = require('./lib/mnemonic');
+trivechaincore.BloomFilter = require('./lib/bloomfilter');
 
 // dependencies, subject to change
-bitcore.deps = {};
-bitcore.deps.bnjs = require('bn.js');
-bitcore.deps.bs58 = require('bs58');
-bitcore.deps.Buffer = Buffer;
-bitcore.deps.elliptic = require('elliptic');
-bitcore.deps._ = require('lodash');
+trivechaincore.deps = {};
+trivechaincore.deps.bnjs = require('bn.js');
+trivechaincore.deps.bs58 = require('bs58');
+trivechaincore.deps.Buffer = Buffer;
+trivechaincore.deps.elliptic = require('elliptic');
+trivechaincore.deps._ = require('lodash');
 
 // Internal usage, exposed for testing/advanced tweaking
-bitcore.Transaction.sighash = require('./lib/transaction/sighash');
+trivechaincore.Transaction.sighash = require('./lib/transaction/sighash');

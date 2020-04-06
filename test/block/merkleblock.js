@@ -8,11 +8,11 @@ var chai = require('chai');
 var should = chai.should();
 var expect = chai.expect;
 
-var bitcore = require('../..');
-var MerkleBlock = bitcore.MerkleBlock;
-var BufferReader = bitcore.encoding.BufferReader;
-var BufferWriter = bitcore.encoding.BufferWriter;
-var Transaction = bitcore.Transaction;
+var trivechaincore = require('../..');
+var MerkleBlock = trivechaincore.MerkleBlock;
+var BufferReader = trivechaincore.encoding.BufferReader;
+var BufferWriter = trivechaincore.encoding.BufferWriter;
+var Transaction = trivechaincore.Transaction;
 var data = require('../data/merkleblocks.js');
 var transactionVector = require('../data/tx_creation');
 

@@ -8,10 +8,10 @@ var expect = require('chai').expect;
 var _ = require('lodash');
 var sinon = require('sinon');
 
-var bitcore = require('../..');
-var GovObject = bitcore.GovObject;
-var Proposal = bitcore.GovObject.Proposal;
-var errors = bitcore.errors;
+var trivechaincore = require('../..');
+var GovObject = trivechaincore.GovObject;
+var Proposal = trivechaincore.GovObject.Proposal;
+var errors = trivechaincore.errors;
 
 
 var BufferReader = require('../../lib/encoding/bufferreader');

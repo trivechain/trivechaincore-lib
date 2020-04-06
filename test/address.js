@@ -9,14 +9,14 @@ var chai = require('chai');
 var should = chai.should();
 var expect = chai.expect;
 
-var bitcore = require('..');
-var PublicKey = bitcore.PublicKey;
-var Address = bitcore.Address;
-var Script = bitcore.Script;
-var Networks = bitcore.Networks;
+var trivechaincore = require('..');
+var PublicKey = trivechaincore.PublicKey;
+var Address = trivechaincore.Address;
+var Script = trivechaincore.Script;
+var Networks = trivechaincore.Networks;
 
-var validbase58 = require('./data/bitcoind/base58_keys_valid.json');
-var invalidbase58 = require('./data/bitcoind/base58_keys_invalid.json');
+var validbase58 = require('./data/trivechaind/base58_keys_valid.json');
+var invalidbase58 = require('./data/trivechaind/base58_keys_invalid.json');
 
 describe('Address', function() {
 
@@ -42,7 +42,7 @@ describe('Address', function() {
     }).should.throw('Third argument must be "pubkeyhash" or "scripthash"');
   });
 
-  describe('bitcoind compliance', function() {
+  describe('trivechaind compliance', function() {
     validbase58.map(function(d) {
       if (!d[2].isPrivkey) {
         it('should describe address ' + d[0] + ' as valid', function() {
@@ -256,7 +256,7 @@ describe('Address', function() {
     it('should error because of unrecognized data format', function() {
       (function() {
         return new Address(new Error());
-      }).should.throw(bitcore.errors.InvalidArgument);
+      }).should.throw(trivechaincore.errors.InvalidArgument);
     });
 
     it('should error because of incorrect format for pubkey hash', function() {
@@ -459,7 +459,7 @@ describe('Address', function() {
     it('will fail with invalid state', function() {
       expect(function() {
         return Address.fromObject('¹');
-      }).to.throw(bitcore.errors.InvalidState);
+      }).to.throw(trivechaincore.errors.InvalidState);
     });
   });
 

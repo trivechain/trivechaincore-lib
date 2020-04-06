@@ -4,7 +4,7 @@
 'use strict';
 
 var benchmark = require('benchmark');
-var bitcore = require('..');
+var trivechaincore = require('..');
 var async = require('async');
 var blockData = require('./block-357238.json');
 
@@ -18,7 +18,7 @@ async.series([
 
     var c = 0;
     var scripts = [];
-    var block = bitcore.Block.fromString(blockData);
+    var block = trivechaincore.Block.fromString(blockData);
     for (var i = 0; i < block.transactions.length; i++) {
       var tx = block.transactions[i];
       for (var j = 0; j < tx.inputs.length; j++) {

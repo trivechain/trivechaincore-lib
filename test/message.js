@@ -7,16 +7,16 @@ var chai = require('chai');
 var expect = chai.expect;
 var should = chai.should();
 
-var bitcore = require('../.');
-var Address = bitcore.Address;
-var Signature = bitcore.crypto.Signature;
-var Message = bitcore.Message;
+var trivechaincore = require('../.');
+var Address = trivechaincore.Address;
+var Signature = trivechaincore.crypto.Signature;
+var Message = trivechaincore.Message;
 
 describe('Message', function() {
 
   var address = 'yZKdLYCvDXa2kyQr8Tg3N6c3xeZoK7XDcj';
   var badAddress = 'yj3v6A6gQkiRbChbGwvahiFZ6EfpYxk9na';
-  var privateKey = bitcore.PrivateKey.fromWIF('cR4qogdN9UxLZJXCNFNwDRRZNeLRWuds9TTSuLNweFVjiaE4gPaq');
+  var privateKey = trivechaincore.PrivateKey.fromWIF('cR4qogdN9UxLZJXCNFNwDRRZNeLRWuds9TTSuLNweFVjiaE4gPaq');
   var text = 'hello, world';
   var signatureString = 'IB+LpNmaTAkB8e6fGgocGKuZ2tAXJ4ZmhhVs7FbOOcHjHPgMHycpAFIl1ojb+PA6jyhufeOKQZKjPnI8VQnevRI=';
 
@@ -104,7 +104,7 @@ describe('Message', function() {
   });
 
   it('will verify with an uncompressed pubkey', function() {
-    var privateKey = new bitcore.PrivateKey('67fd2209ce4a95f6f1d421ab3fbea47ada13df11b73b30c4d9a9f78cc80651ac');
+    var privateKey = new trivechaincore.PrivateKey('67fd2209ce4a95f6f1d421ab3fbea47ada13df11b73b30c4d9a9f78cc80651ac');
     var message = new Message('This is an example of a signed message.');
     var signature = message.sign(privateKey);
     var verified = message.verify(privateKey.toAddress(), signature);

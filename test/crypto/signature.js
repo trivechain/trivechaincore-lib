@@ -5,14 +5,14 @@
 
 var _ = require('lodash');
 var should = require('chai').should();
-var bitcore = require('../..');
-var BN = bitcore.crypto.BN;
-var Signature = bitcore.crypto.Signature;
-var JSUtil = bitcore.util.js;
-var Interpreter = bitcore.Script.Interpreter;
+var trivechaincore = require('../..');
+var BN = trivechaincore.crypto.BN;
+var Signature = trivechaincore.crypto.Signature;
+var JSUtil = trivechaincore.util.js;
+var Interpreter = trivechaincore.Script.Interpreter;
 
-var sig_canonical = require('../data/bitcoind/sig_canonical');
-var sig_noncanonical = require('../data/bitcoind/sig_noncanonical');
+var sig_canonical = require('../data/trivechaind/sig_canonical');
+var sig_noncanonical = require('../data/trivechaind/sig_noncanonical');
 
 describe('Signature', function() {
 
@@ -254,7 +254,7 @@ describe('Signature', function() {
     });
 
 
-    describe('bitcoind fixtures', function() {
+    describe('trivechaind fixtures', function() {
       var test_sigs = function(set, expected) {
         var i = 0;
         set.forEach(function(vector) {

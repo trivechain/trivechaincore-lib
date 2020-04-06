@@ -3,23 +3,23 @@
 
 'use strict';
 
-var bitcore = require('../..');
+var trivechaincore = require('../..');
 var BN = require('../../lib/crypto/bn');
-var BufferReader = bitcore.encoding.BufferReader;
-var BufferWriter = bitcore.encoding.BufferWriter;
-var BlockHeader = bitcore.BlockHeader;
-var Block = bitcore.Block;
+var BufferReader = trivechaincore.encoding.BufferReader;
+var BufferWriter = trivechaincore.encoding.BufferWriter;
+var BlockHeader = trivechaincore.BlockHeader;
+var Block = trivechaincore.Block;
 var chai = require('chai');
 var fs = require('fs');
 var should = chai.should();
-var Transaction = bitcore.Transaction;
+var Transaction = trivechaincore.Transaction;
 
 // https://test-insight.bitpay.com/block/000000000b99b16390660d79fcc138d2ad0c89a0d044c4201a02bdf1f61ffa11
 var dataRawBlockBuffer = fs.readFileSync('test/data/blk19976-testnet.dat');
 var dataRawBlockBinary = fs.readFileSync('test/data/blk19976-testnet.dat', 'binary');
 var dataJson = fs.readFileSync('test/data/blk19976-testnet.json').toString();
 var data = require('../data/blk19976-testnet');
-var dataBlocks = require('../data/bitcoind/blocks');
+var dataBlocks = require('../data/trivechaind/blocks');
 
 describe('Block', function() {
 

@@ -3,12 +3,12 @@
 
 'use strict';
 
-var bitcore = require('../..');
+var trivechaincore = require('../..');
 var BN = require('../../lib/crypto/bn');
-var BufferReader = bitcore.encoding.BufferReader;
-var BufferWriter = bitcore.encoding.BufferWriter;
+var BufferReader = trivechaincore.encoding.BufferReader;
+var BufferWriter = trivechaincore.encoding.BufferWriter;
 
-var BlockHeader = bitcore.BlockHeader;
+var BlockHeader = trivechaincore.BlockHeader;
 var fs = require('fs');
 var should = require('chai').should();
 

@@ -1,7 +1,7 @@
 # trivechaincore Library
 
 [![Build Status](https://img.shields.io/travis/trivechain/trivechaincore-lib.svg?branch=master)](https://travis-ci.org/trivechain/trivechaincore-lib)
-[![NPM Package](https://img.shields.io/npm/v/trivechain/trivechaincore-lib.svg)](https://www.npmjs.org/package/trivechain/trivechaincore-lib)
+[![NPM Package](https://img.shields.io/npm/v/@trivechain/trivechaincore-lib.svg)](https://www.npmjs.org/package/@trivechain/trivechaincore-lib)
 
 > A pure and powerful JavaScript Trivechain library.
 
@@ -19,7 +19,7 @@ Trivechain is a powerful new peer-to-peer platform for the next generation of fi
 ### NodeJS
 
 ```
-npm install trivechain/trivechaincore-lib
+npm install @trivechain/trivechaincore-lib
 ```
 
 ### Browser
@@ -58,8 +58,8 @@ Some functionality is implemented as a module that can be installed separately:
 * [Trivechain Core JSON-RPC](https://github.com/trivechain/trivechaind-rpc)
 * [Payment Channels](https://github.com/trivechain/trivechaincore-channel)
 * [Mnemonics](https://github.com/trivechain/trivechaincore-mnemonic)
-* [Elliptical Curve Integrated Encryption Scheme](https://github.com/trivechain/bitcore-ecies-dash)
-* [Signed Messages](https://github.com/trivechain/bitcore-message-dash)
+* [Elliptical Curve Integrated Encryption Scheme](https://github.com/trivechain/trivechaincore-ecies-dash)
+* [Signed Messages](https://github.com/trivechain/trivechaincore-message-dash)
 
 ### Development & Tests
 
@@ -118,5 +118,6 @@ Please send pull requests for bug fixes, code optimization, and ideas for improv
 Code released under [the MIT license](LICENSE).
 
 Copyright 2013-2017 BitPay, Inc. Bitcore is a trademark maintained by BitPay, Inc.  
-Copyright 2016-2017 The Trivechain Foundation, Inc.  
-Copyright 2017-2018 Trivechain Core Group, Inc.  
+Copyright 2016-2017 The Dash Foundation, Inc.  
+Copyright 2017-2018 Dash Core Group, Inc.  
+Copyright 2018-2020 Trivechain Ltd.  

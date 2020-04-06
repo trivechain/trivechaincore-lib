@@ -10,12 +10,12 @@ var expect = require('chai').expect;
 var _ = require('lodash');
 var sinon = require('sinon');
 
-var bitcore = require('../../..');
-var BufferReader = bitcore.encoding.BufferReader;
-var BufferWriter = bitcore.encoding.BufferWriter;
+var trivechaincore = require('../../..');
+var BufferReader = trivechaincore.encoding.BufferReader;
+var BufferWriter = trivechaincore.encoding.BufferWriter;
 
-var Trigger = bitcore.GovObject.Trigger;
-var errors = bitcore.errors;
+var Trigger = trivechaincore.GovObject.Trigger;
+var errors = trivechaincore.errors;
 
 describe('Trigger', function() {
   var eventBlockHeight = 110976;
@@ -80,7 +80,7 @@ describe('Trigger', function() {
   });
 
   it('should create a new trigger from a hex string', function() {
-    var Trigger = bitcore.GovObject.Trigger;
+    var Trigger = trivechaincore.GovObject.Trigger;
     var trigger = new Trigger(expectedHex);
     trigger.network = 'testnet';
 

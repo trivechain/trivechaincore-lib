@@ -3,8 +3,8 @@
 
 'use strict';
 
-var bitcore = require('../..');
-var Random = bitcore.crypto.Random;
+var trivechaincore = require('../..');
+var Random = trivechaincore.crypto.Random;
 var should = require('chai').should();
 var expect = require('chai').expect;
 

@@ -7,9 +7,9 @@
 var should = require('chai').should();
 var expect = require('chai').expect;
 
-var bitcore = require('../..');
-var errors = bitcore.errors;
-var BufferUtil = bitcore.util.buffer;
+var trivechaincore = require('../..');
+var errors = trivechaincore.errors;
+var BufferUtil = trivechaincore.util.buffer;
 
 describe('buffer utils', function() {
 

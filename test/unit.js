@@ -6,9 +6,9 @@
 var should = require('chai').should();
 var expect = require('chai').expect;
 
-var bitcore = require('..');
-var errors = bitcore.errors;
-var Unit = bitcore.Unit;
+var trivechaincore = require('..');
+var errors = trivechaincore.errors;
+var Unit = trivechaincore.Unit;
 
 describe('Unit', function() {
 

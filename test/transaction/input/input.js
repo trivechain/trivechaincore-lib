@@ -7,13 +7,13 @@ var should = require('chai').should();
 var expect = require('chai').expect;
 var _ = require('lodash');
 
-var bitcore = require('../../..');
-var errors = bitcore.errors;
-var PrivateKey = bitcore.PrivateKey;
-var Address = bitcore.Address;
-var Script = bitcore.Script;
-var Networks = bitcore.Networks;
-var Input = bitcore.Transaction.Input;
+var trivechaincore = require('../../..');
+var errors = trivechaincore.errors;
+var PrivateKey = trivechaincore.PrivateKey;
+var Address = trivechaincore.Address;
+var Script = trivechaincore.Script;
+var Networks = trivechaincore.Networks;
+var Input = trivechaincore.Transaction.Input;
 
 describe('Transaction.Input', function() {
 
