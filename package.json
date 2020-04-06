@@ -7,10 +7,9 @@
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "test": "npm run build && npm run test:node && npm run test:browser",
-    "test:node": "mocha $NODE_DEBUG_OPTION --no-timeouts --recursive",
+    "test": "nyc --reporter=html --reporter=text mocha",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
     "test:browser": "karma start ./karma.conf.js --single-run",
-    "coverage": "nyc mocha --recursive",
     "build": "webpack --display-error-details"
   },
   "contributors": [

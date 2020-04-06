@@ -259,13 +259,13 @@ describe('PrivateKey', function() {
     it('should output this known livenet address correctly', function() {
       var privkey = PrivateKey.fromWIF('XHWwKGqugqSRkcpuiWyDJXSHhjWGCidZ5HLwf9ScMLaEeDTRHepq');
       var address = privkey.toAddress();
-      address.toString().should.equal('XjnkiGYQkC3bbAzvDjP7jkNouHCHNRr3ug');
+      address.toString().should.equal('TWhZkwP3czY98feaQftHujg7ypQmAqH5v7');
     });
 
     it('should output this known testnet address correctly', function() {
       var privkey = PrivateKey.fromWIF('cR4qogdN9UxLZJXCNFNwDRRZNeLRWuds9TTSuLNweFVjiaE4gPaq');
       var address = privkey.toAddress();
-      address.toString().should.equal('yZKdLYCvDXa2kyQr8Tg3N6c3xeZoK7XDcj');
+      address.toString().should.equal('tQWMvHRktHS9xh4S2oJVcPXFjoZzCvPL4B');
     });
 
     it('creates network specific address', function() {

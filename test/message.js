@@ -14,7 +14,7 @@ var Message = trivechaincore.Message;
 
 describe('Message', function() {
 
-  var address = 'yZKdLYCvDXa2kyQr8Tg3N6c3xeZoK7XDcj';
+  var address = 'tQWMvHRktHS9xh4S2oJVcPXFjoZzCvPL4B';
   var badAddress = 'yj3v6A6gQkiRbChbGwvahiFZ6EfpYxk9na';
   var privateKey = trivechaincore.PrivateKey.fromWIF('cR4qogdN9UxLZJXCNFNwDRRZNeLRWuds9TTSuLNweFVjiaE4gPaq');
   var text = 'hello, world';

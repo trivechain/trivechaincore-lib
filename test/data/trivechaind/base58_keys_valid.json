@@ -1,0 +1,56 @@
+[
+  [
+    "TEz3XyyuGDJYbcztRQB3LDjb7WKrgniX5v",
+    "02247ee80d86180a146810a0eecb15c3f92d52c953a309d1b899e7bff23ea7f5c0",
+    {
+      "addrType": "pubkey",
+      "isPrivkey": false,
+      "isTestnet": false
+    }
+  ],
+  [
+    "TEz3XyyuGDJYbcztRQB3LDjb7WKrgniX5v",
+    "76a91437012472a8caa71392ffd834318910cc155866a988ac",
+    {
+      "addrType": "pubkey",
+      "isPrivkey": false,
+      "isTestnet": false
+    }
+  ],
+  [
+    "8NF8N8SNn1meozr2mPBZyaPeHoMSJEy32z",
+    "52210320f9d15e85b891d4b164fb90046a829469f75b23d9dc3bde52544a5f4fbbfe0d2102247ee80d86180a146810a0eecb15c3f92d52c953a309d1b899e7bff23ea7f5c052ae",
+    {
+      "addrType": "script",
+      "isPrivkey": false,
+      "isTestnet": false
+    }
+  ],
+  [
+    "8WdLvjoLXGWYfGCjY6Bd56GoGkmdBbr7eg",
+    "51210320f9d15e85b891d4b164fb90046a829469f75b23d9dc3bde52544a5f4fbbfe0d2102247ee80d86180a146810a0eecb15c3f92d52c953a309d1b899e7bff23ea7f5c052ae",
+    {
+      "addrType": "script",
+      "isPrivkey": false,
+      "isTestnet": false
+    }
+  ],
+  [
+    "tVAQmNMBPWofRSwsZpdKfPpFDpeiqKeGS3",
+    "a914f3ef2c08ed7853b269d89a7a93af4231ecf707c588",
+    {
+      "addrType": "pubkey",
+      "isPrivkey": false,
+      "isTestnet": true
+    }
+  ],
+  [
+    "sYTDYTVRu3Xzo8VtQnjDt2DV1SiMou8ahw",
+    "a9149bcdf503f0f87757503f7ee857e21f18ac7a8c8787",
+    {
+      "addrType": "script",
+      "isPrivkey": false,
+      "isTestnet": true
+    }
+  ]
+]
