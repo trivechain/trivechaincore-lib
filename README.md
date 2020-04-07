@@ -7,6 +7,8 @@
 
 > A pure and powerful JavaScript Trivechain library.
 
+NOTE: This branch will have error for X16R and X16Rv2 Block Header due to lack of library that support browser version of the hashes
+
 Trivechain is a powerful new peer-to-peer platform for the next generation of financial technology. The decentralized nature of the Trivechain network allows for highly resilient Trivechain infrastructure, and the developer community needs reliable, open-source tools to implement Trivechain apps and services.
 
 ## Table of Contents
