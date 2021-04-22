@@ -3885,7 +3885,7 @@ declare module "@trivechain/trivechaincore-lib" {
          *    In case of a string, the UTF-8 representation will be stored
          * @return {Transaction} this, for chaining
          */
-        addData(value: Buffer | string): Transaction;
+        addData(value: Buffer | string, amount?: number): Transaction;
 
         /**
          * Add an output to the transaction.

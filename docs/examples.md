@@ -131,7 +131,7 @@ var utxo = {
 
 var transaction = new trivechaincore.Transaction()
     .from(utxo)
-    .addData('trivechaincore rocks') // Add OP_RETURN data
+    .addData('trivechaincore rocks, burn trvc in OP_RETURN', 100) // Add OP_RETURN data
     .sign(privateKey);
 ```
 
