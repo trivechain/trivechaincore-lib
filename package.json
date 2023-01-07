@@ -139,7 +139,7 @@
     "sinon": "^4.5.0",
     "transform-loader": "^0.2.4",
     "uglifyjs-webpack-plugin": "^1.3.0",
-    "webpack": "^3.12.0"
+    "webpack": "^5.75.0"
   },
   "license": "MIT"
 }
